@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navegacion {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.logo {
+    font-size: 32px
+}
+
+.navegacion ul {
+    list-style: none;
+
+}
+
+.navegacion li {
+    margin-left: 0;
+}
+
+.navegacion a {
+    text-decoration: none;
+}
