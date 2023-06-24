@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+}
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -22,8 +27,4 @@
 
 .navegacion li {
     margin-left: 0;
-}
-
-.navegacion a {
-    text-decoration: none;
 }
