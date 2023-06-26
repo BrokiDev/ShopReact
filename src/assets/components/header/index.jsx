@@ -1,5 +1,6 @@
 import React from "react";
 import '../header/style.css'
+import CartWidget from "../cartWidget/cartWidget";
 
 const Header = ({logo}) => {
     return (
@@ -13,6 +14,7 @@ const Header = ({logo}) => {
                 <ul><li><a href="/">Catalogo</a></li></ul>
                 <ul><li><a href="/">Nosotros</a></li></ul>
                 <ul><li><a href="/">Contacto</a></li></ul>
+                <CartWidget/>
             </nav>
         </header>
     )
