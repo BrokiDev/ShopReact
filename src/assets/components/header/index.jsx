@@ -1,21 +1,15 @@
-import React from "react";
 import '../header/style.css'
-import CartWidget from "../cartWidget/cartWidget";
+import Navbar from '../navigationBar/navbar'
 
-const Header = ({logo}) => {
+const Header = ({ logo }) => {
     return (
-
         <header className="header">
-                <div className="logo">
-                    <a href="/"><h3>{logo}</h3></a>
-                </div>
-            <nav className="navegacion">
-                <ul><li><a href="/">Inicio</a></li></ul>
-                <ul><li><a href="/">Catalogo</a></li></ul>
-                <ul><li><a href="/">Nosotros</a></li></ul>
-                <ul><li><a href="/">Contacto</a></li></ul>
-                <CartWidget/>
-            </nav>
+            <a href='/' className="logo">{logo}</a>
+            <input type="checkbox" className="side-menu" id="side-menu" />
+            <label className="hamb" htmlFor ="side-menu">
+                <span className="hamb-line"></span>
+            </label>
+        <Navbar />
         </header>
     )
 }
