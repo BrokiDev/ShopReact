@@ -63,8 +63,7 @@
   background-color: #1d2d44;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
-<<<<<<< HEAD
-=======
+
 
 .card-detail {
   display: flex;
@@ -139,4 +138,4 @@
     flex-direction: column;
   }
 }
->>>>>>> ea782ae ([feature] added card-detail and filter by input)
+
