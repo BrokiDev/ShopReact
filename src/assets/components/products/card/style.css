@@ -16,18 +16,28 @@
   .card img {
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
   }
 
   .card h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: #333;
+    cursor: pointer;
+ 
   }
 
   .card p {
     font-size: 1rem;
     font-weight: 400;
     color: #333;
+    padding: 2px;
+  }
+
+  .card span {
+    padding: 2px;
+    margin: 2px;
+    color: #b91295;
   }
 
   .card button {
@@ -42,8 +52,91 @@
     transition: all 0.3s ease;
   }
 
+
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transform: scale(1.02);
+}
 .card button:hover {
     transition: all 0.3s ease;
   background-color: #1d2d44;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
+<<<<<<< HEAD
+=======
+
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  border: 2px solid #bac0c7;
+  margin: 20px;
+}
+
+.card-detail button {
+  background-color: #30537a;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-detail img {
+  width: 60%;
+  margin: 0 auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.card-detail h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+
+}
+
+.card-detail p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  padding: 2px;
+}
+
+.card-detail span {
+  padding: 2px;
+  margin: 2px;
+  color: #b91295;
+}
+
+.text-centered {
+  text-align: center;
+  margin: 20px;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .card-detail img {
+    width: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+}
+>>>>>>> ea782ae ([feature] added card-detail and filter by input)

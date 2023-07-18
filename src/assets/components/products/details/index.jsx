@@ -1,8 +1,10 @@
 import '../card/style.css';
 
-const Card = ({id,name,image,category,price,description,stock ,onAddCart, onShowDetails}) => {
+const Details = ({id,name,image,category,price,description,stock ,onAddCart}) => {
     return (
-        <div  key={id} className='card' onClick={() => onShowDetails(id)}>
+        <>
+        <h2 className='text-centered'>Product Detail</h2>
+        <div className='card-detail'>
           <h3>{name}</h3>
           <img src={image} alt="Imagen Producto" />
           <p>{category}</p>
@@ -11,7 +13,8 @@ const Card = ({id,name,image,category,price,description,stock ,onAddCart, onShow
           <span>$USD{price}</span>
           <button onClick={() => onAddCart(id)}>Add to Cart</button>
         </div>
+        </>
     );
 };
 
-export default Card;
+export default Details;

@@ -18,3 +18,45 @@ body {
   padding: 20px 0;
 }
 
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  position: relative;
+  top: 110px;
+  right: 45px;
+  border-radius: 50%;
+  background-color: #6b6a6a;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 32px;
+  color: #ff0000;
+}
+
+.close-btn:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .close-btn {
+    position: relative;
+    top: 20px;
+    right: 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}
+  
+
+
