@@ -21,6 +21,7 @@ function Home() {
   const [details, setDetails] = useState(false);
   const [detailsProduct, setDetailsProduct] = useState(null);
   const [productsFiltered, setProductsFiltered] = useState([]);
+  const [categoriesFiltered, setCategoriesFiltered] = useState(false);
 
   const {
     data: products,
@@ -46,52 +47,104 @@ function Home() {
     navigate(`/products/${id}`);
   };
 
-  const isValidCounter = counter > 0;
+  // const isValidCounter = counter > 0;
 
-  const incrementCounter = () => {
-    setCounter((prevCounter) => prevCounter + 1);
+  // const incrementCounter = () => {
+  //   setCounter((prevCounter) => prevCounter + 1);
+  // };
+
+  // const decrementCounter = () => {
+  //   if (isValidCounter) {
+  //     setCounter((prevCounter) => prevCounter - 1);
+  //   }
+  // };
+
+  // const OnChange = (event) => {
+  //   const value = event.target.value;
+  //   setInput(value);
+  //   filterBySearch(value);
+  // };
+
+  // const onFocus = () => {
+  //   setActive(false);
+  // };
+
+  // const onBlur = () => {
+  //   setActive(false);
+  // };
+
+  const onFilter = (categories) => {
+    setCategoriesFiltered(true);
+    let filteredProducts = [...products];
+    const productsByCategory = filteredProducts.filter(
+      (item) => item.category === categories
+    );
+    setProductsFiltered(productsByCategory);
   };
 
-  const decrementCounter = () => {
-    if (isValidCounter) {
-      setCounter((prevCounter) => prevCounter - 1);
+  const onAddToCart = (id) => {
+    const item = products.find((product) => product.id === id);
+    if (
+      cart?.find((product) => product.id === id)?.quantity ===
+      Number(item.stock)
+    )
+      return;
+    if (cart?.length === 0) {
+      setCart([{ ...item, quantity: 1 }]);
     }
+    if (cart?.length > 0 && !cart?.find((product) => product.id === id)) {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
+    if (cart?.length > 0 && cart?.find((product) => product.id === id)) {
+      setCart((currentCart) => {
+        return currentCart.map((product) => {
+          if (product.id === id) {
+            return { ...product, quantity: product.quantity + 1 };
+          } else {
+            return product;
+          }
+        });
+      });
+    }
+    console.log(
+      cart?.find((product) => product.id === id)?.quantity ===
+        Number(item.stock)
+    );
   };
 
-  const OnChange = (event) => {
-    const value = event.target.value;
-    setInput(value);
-    filterBySearch(value);
-  };
-
-  const onFocus = () => {
-    setActive(false);
-  };
-
-  const onBlur = () => {
-    setActive(false);
-  };
+  console.log({ cart });
 
   return (
     <div>
-      <Counter
+      {/* <Counter
         isValidCounter={isValidCounter}
         counter={counter}
         onDecrementCounter={decrementCounter}
         onIncrementCounter={incrementCounter}
-      />
+      /> */}
       <div className="category">
         {loadingCategories && <Loader />}
         {errorCategories && <h3>{errorCategories}</h3>}
         <Slider>
+          <button
+            onClick={() => setCategoriesFiltered(false)}
+            className="categorycontain"
+          >
+            <p>All</p>
+          </button>
+
           {categories.map((category) => (
-            <div key={category.id} className="categorycontain">
+            <button
+              key={category.id}
+              onClick={() => onFilter(category.categories)}
+              className="categorycontain"
+            >
               <p className="categoryname">{category.categories}</p>
-            </div>
+            </button>
           ))}
         </Slider>
       </div>
-      <Input
+      {/* <Input
         placeholder={"Find your Product"}
         type={"text"}
         onChange={OnChange}
@@ -102,24 +155,27 @@ function Home() {
       {loadingProducts && <Loader />}
       {errorProducts && <h3>{errorProducts}</h3>}
       {input.length > 0 && productsFiltered.length === 0 && (
-        <h3>Product No Available</h3>
-      )}
+        <h3>Products No Available</h3>
+      )} */}
       <div className="contenedor">
-        {input.length > 0
+        {categoriesFiltered
           ? productsFiltered.map((element) => (
               <Card
                 key={element.id}
                 {...element}
                 onShowDetails={onShowDetails}
+                onAddToCart={onAddToCart}
               />
             ))
           : products.map((element) => (
               <Card
                 key={element.id}
                 {...element}
+                onAddToCart={onAddToCart}
                 onShowDetails={onShowDetails}
               />
             ))}
+        {productsFiltered.length === 0 && <h3>Products No Available</h3>}
       </div>
     </div>
   );
