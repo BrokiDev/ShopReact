@@ -71,6 +71,116 @@
   color: #fff;
 }
 
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.cardCartContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 0;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid #bac0c7;
+  margin: 20px;
+  width: 80%;
+}
+
+.cart img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.cart h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+}
+
+.cart p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  padding: 2px;
+}
+
+.btnAdd {
+  background-color: #30537a;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnDecrease {
+  background-color: #30537a;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnRemove {
+  background-color: #ff0000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.totalCart {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #30537a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  color: #fff;
+}
+
+.totalCart:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .contenedor {
     display: flex;

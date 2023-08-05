@@ -106,13 +106,28 @@ function Home() {
         });
       });
     }
-    console.log(
-      cart?.find((product) => product.id === id)?.quantity ===
-        Number(item.stock)
-    );
   };
 
-  console.log({ cart });
+  const onDecreaseFromCart = (id) => {
+    if (cart?.find((product) => product.id === id)?.quantity === 1) return;
+    if (cart?.length > 0 && cart?.find((product) => product.id === id)) {
+      setCart((currentCart) => {
+        return currentCart.map((product) => {
+          if (product.id === id) {
+            return { ...product, quantity: product.quantity - 1 };
+          } else {
+            return product;
+          }
+        });
+      });
+    }
+  };
+
+  const onRemoveFromCart = (id) => {
+    setCart((currentCart) => {
+      return currentCart.filter((product) => product.id !== id);
+    });
+  };
 
   return (
     <div>
@@ -122,6 +137,53 @@ function Home() {
         onDecrementCounter={decrementCounter}
         onIncrementCounter={incrementCounter}
       /> */}
+      <div className="cartContainer">
+        <h2>Cart</h2>
+        <div className="cardCartContainer">
+          {cart.length === 0 && <h3>Cart is empty</h3>}
+          {cart?.length > 0 &&
+            cart.map((product) => (
+              <div key={product.id} className="cart">
+                <h3>{product.name}</h3>
+                <img src={product.image} alt="Imagen Producto" />
+                <p>Qty {product.quantity}</p>
+                <p>USD{product.price}</p>
+                <p>{product.stock}left</p>
+                <div className="cardActions">
+                  <button
+                    onClick={() => onAddToCart(product.id)}
+                    className="btnAdd"
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => onDecreaseFromCart(product.id)}
+                    className="btnDecrease"
+                  >
+                    -
+                  </button>
+
+                  <button
+                    onClick={() => onRemoveFromCart(product.id)}
+                    className="btnRemove"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+        </div>
+        {cart?.length > 0 && (
+          <p className="totalCart">
+            Total: USD
+            {cart.reduce(
+              (acc, product) => acc + product.price * product.quantity,
+              0
+            )}
+          </p>
+        )}
+      </div>
+
       <div className="category">
         {loadingCategories && <Loader />}
         {errorCategories && <h3>{errorCategories}</h3>}

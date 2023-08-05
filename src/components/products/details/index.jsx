@@ -8,7 +8,7 @@ const Details = ({
   price,
   description,
   stock,
-  onAddCart,
+  onAddToCart,
 }) => {
   return (
     <>
@@ -20,7 +20,7 @@ const Details = ({
         <p>{description}</p>
         <p>{stock}left</p>
         <span>$USD{price}</span>
-        <button onClick={() => onAddCart(id)}>Add to Cart</button>
+        <button onClick={() => onAddToCart(id)}>Add to Cart</button>
       </div>
     </>
   );
