@@ -9,5 +9,15 @@ export const URL = {
         },
     
         }  
+    },
+
+    CATEGORIES: {
+        URL: `${BASE_URL}/categories`,
+        config: {
+            method: 'GET',
+            headers:  {
+            'Content-Type': 'application/json',
+            },
+        }
     } 
 }

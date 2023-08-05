@@ -9,6 +9,7 @@ import { URL } from "../../url/index";
 import Loader from "../../components/loader/index";
 import ProductDetail from "../product-detail";
 import { useNavigate } from "react-router";
+import Slider from "../../components/slider";
 
 function Home() {
   const navigate = useNavigate();
@@ -23,9 +24,17 @@ function Home() {
 
   const {
     data: products,
-    loading,
-    error,
+    loading: loadingProducts,
+    error: errorProducts,
   } = useFetch(URL.Product.URL, URL.Product.config);
+
+  const {
+    data: categories,
+    loading: loadingCategories,
+    error: errorCategories,
+  } = useFetch(URL.CATEGORIES.URL, URL.CATEGORIES.config);
+
+  console.log(categories);
 
   const filterBySearch = (q) => {
     let filteredProducts = [...products];
@@ -73,6 +82,17 @@ function Home() {
         onDecrementCounter={decrementCounter}
         onIncrementCounter={incrementCounter}
       />
+      <div className="category">
+        {loadingCategories && <Loader />}
+        {errorCategories && <h3>{errorCategories}</h3>}
+        <Slider>
+          {categories.map((category) => (
+            <div key={category.id} className="categorycontain">
+              <p className="categoryname">{category.categories}</p>
+            </div>
+          ))}
+        </Slider>
+      </div>
       <Input
         placeholder={"Find your Product"}
         type={"text"}
@@ -81,8 +101,8 @@ function Home() {
         onBlur={onBlur}
         className={inputclass}
       />
-      {loading && <Loader />}
-      {error && <h3>{error}</h3>}
+      {loadingProducts && <Loader />}
+      {errorProducts && <h3>{errorProducts}</h3>}
       {input.length > 0 && productsFiltered.length === 0 && (
         <h3>Product No Available</h3>
       )}
