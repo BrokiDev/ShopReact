@@ -34,8 +34,6 @@ function Home() {
     error: errorCategories,
   } = useFetch(URL.CATEGORIES.URL, URL.CATEGORIES.config);
 
-  console.log(categories);
-
   const filterBySearch = (q) => {
     let filteredProducts = [...products];
     filteredProducts = filteredProducts.filter((item) => {
