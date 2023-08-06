@@ -2,7 +2,7 @@ import "./styles.css";
 import Details from "../../components/products/details";
 import { useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../url";
-import { useFetch } from "../../components/hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 import Loader from "../../components/loader";
 import { useContext } from "react";
 import { CartContext } from "../../context/cart-context";

@@ -4,7 +4,7 @@ import "./styles.css";
 import Input from "../../components/input/index";
 import Card from "../../components/products/card/index";
 
-import { useFetch } from "../../components/hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 import { URL } from "../../url/index";
 import Loader from "../../components/loader/index";
 import { useNavigate } from "react-router";

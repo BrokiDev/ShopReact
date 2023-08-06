@@ -12,6 +12,7 @@ function Cart() {
     navigate("/checkout");
   };
 
+  console.log({ cart });
   return (
     <div className="cartContainer">
       <h2>Cart</h2>
