@@ -1,25 +1,20 @@
 import { useEffect, useState, useContext } from "react";
 import "./styles.css";
-import Counter from "../../components/counter/counter";
+
 import Input from "../../components/input/index";
 import Card from "../../components/products/card/index";
-import Details from "../../components/products/details/index";
+
 import { useFetch } from "../../components/hooks/useFetch";
 import { URL } from "../../url/index";
 import Loader from "../../components/loader/index";
-import ProductDetail from "../product-detail";
 import { useNavigate } from "react-router";
 import Slider from "../../components/slider";
 import { CartContext } from "../../context/cart-context";
 
 function Home() {
   const navigate = useNavigate();
-  const [counter, setCounter] = useState(0);
   const [input, setInput] = useState("");
   const [active, setActive] = useState(false);
-  const inputclass = `container ${active ? "active" : ""}`;
-  const [details, setDetails] = useState(false);
-  const [detailsProduct, setDetailsProduct] = useState(null);
   const [productsFiltered, setProductsFiltered] = useState([]);
   const [categoriesFiltered, setCategoriesFiltered] = useState(false);
   const {
@@ -88,8 +83,8 @@ function Home() {
   return (
     <div>
       <div className="category">
-        {loadingCategories && <Loader />}
-        {errorCategories && <h3>{errorCategories}</h3>}
+        {loadingCategories ? <Loader /> : null}
+        {errorCategories ? <h3>{errorCategories}</h3> : null}
         <Slider>
           <button
             onClick={() => setCategoriesFiltered(false)}
@@ -117,8 +112,8 @@ function Home() {
         onBlur={onBlur}
         className={inputclass}
       /> */}
-      {loadingProducts && <Loader />}
-      {errorProducts && <h3>{errorProducts}</h3>}
+      {loadingProducts ? <Loader /> : null}
+      {errorProducts ? <h3>{errorProducts}</h3> : null}
       {input.length > 0 && productsFiltered.length === 0 && (
         <h3>Products No Available</h3>
       )}

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "../card/style.css";
 
 const Card = ({
@@ -26,4 +27,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default memo(Card);

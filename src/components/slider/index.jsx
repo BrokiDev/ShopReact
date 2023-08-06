@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import "./styles.css";
 
 const Slider = ({ children }) => {
@@ -31,4 +31,4 @@ const Slider = ({ children }) => {
   );
 };
 
-export default Slider;
+export default memo(Slider);

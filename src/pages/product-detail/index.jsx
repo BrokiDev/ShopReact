@@ -4,11 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../url";
 import { useFetch } from "../../components/hooks/useFetch";
 import Loader from "../../components/loader";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart-context";
 
 function ProductDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
   const urlProductDetail = `${URL.Product.URL}/${productId}`;
+  const { onAddToCart } = useContext(CartContext);
 
   const history = window.history;
 
@@ -27,7 +30,7 @@ function ProductDetail() {
           </button>
         ) : null}
       </div>
-      <Details {...data} />
+      <Details {...data} onAddToCart={onAddToCart} />
     </>
   );
 }
