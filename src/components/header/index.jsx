@@ -1,12 +1,13 @@
 import "./style.css";
 import Navbar from "../navigationBar/navbar";
+import { useNavigate, Link } from "react-router-dom";
 
 const Header = ({ logo }) => {
   return (
     <header className="header">
-      <a href="/" className="logo">
+      <Link to={"/"} href="/" className="logo">
         {logo}
-      </a>
+      </Link>
       <input type="checkbox" className="side-menu" id="side-menu" />
       <label className="hamb" htmlFor="side-menu">
         <span className="hamb-line"></span>
