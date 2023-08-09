@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const Total = ({ total, goToCheckout }) => {
   return (
     <div className="cartView">

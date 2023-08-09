@@ -84,6 +84,7 @@ function Home() {
   return (
     <div>
       <div className="category">
+        <h2>Categories</h2>
         {loadingCategories ? <Loader /> : null}
         {errorCategories ? <h3>{errorCategories}</h3> : null}
         <Slider>

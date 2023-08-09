@@ -1,0 +1,17 @@
+.btnCheckout {
+  background-color: #008000;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnCheckout:hover {
+  background-color: #2f88ee;
+  color: #fff;
+}

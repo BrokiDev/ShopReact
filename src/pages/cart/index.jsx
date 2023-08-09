@@ -29,7 +29,6 @@ function Cart() {
     navigate("/checkout", { state: { cartId } });
   };
 
-  console.log({ cart });
   return (
     <div className="cartContainer">
       <h2>Cart</h2>

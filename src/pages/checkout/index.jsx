@@ -137,11 +137,9 @@ function Checkout() {
     navigate("/success-order", { state: { orderId: orderId.id } });
   };
 
-  console.log({ formState });
-
   return (
     <div className="">
-      <div className="">
+      <div className="form-cart">
         <div className="form-container">
           <h1 className="checkout-title">Checkout</h1>
           <form onSubmit={onSubmit} className="checkoutForm">
@@ -264,7 +262,7 @@ function Checkout() {
               type="submit"
               className="btn-submit"
             >
-              Checkout
+              Place Order
             </button>
           </form>
         </div>
@@ -280,7 +278,7 @@ function Checkout() {
                 onRemoveFromCart={onRemoveFromCart}
               />
             ))}
-            <Total total={total} />
+            <Total total={total} goToCheckout={"#"} />
           </div>
         ) : null}
       </div>
