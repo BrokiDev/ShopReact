@@ -10,6 +10,7 @@ import Loader from "../../components/loader/index";
 import { useNavigate } from "react-router";
 import Slider from "../../components/slider";
 import { CartContext } from "../../context/cart-context";
+import CategoriesItem from "../../components/categories/item";
 
 function Home() {
   const navigate = useNavigate();
@@ -86,21 +87,26 @@ function Home() {
         {loadingCategories ? <Loader /> : null}
         {errorCategories ? <h3>{errorCategories}</h3> : null}
         <Slider>
-          <button
-            onClick={() => setCategoriesFiltered(false)}
-            className="categorycontain"
-          >
-            <p>All</p>
-          </button>
+          <CategoriesItem
+            name="All"
+            onSelectedCategory={() => setCategoriesFiltered(false)}
+            type="button"
+          />
 
           {categories.map((category) => (
-            <button
+            // <button
+            //   key={category.id}
+            //   onClick={() => onFilter(category.categories)}
+            //   className="categorycontain"
+            // >
+            //   <p className="categoryname">{category.categories}</p>
+            // </button>
+            <CategoriesItem
               key={category.id}
-              onClick={() => onFilter(category.categories)}
-              className="categorycontain"
-            >
-              <p className="categoryname">{category.categories}</p>
-            </button>
+              name={category.categories}
+              onSelectedCategory={() => onFilter(category.categories)}
+              type="button"
+            />
           ))}
         </Slider>
       </div>

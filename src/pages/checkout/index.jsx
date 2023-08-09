@@ -3,11 +3,11 @@ import Input from "../../components/input";
 import "./styles.css";
 import { useForm } from "../../hooks/useForm";
 import { CartContext } from "../../context/cart-context";
-// import { firebaseServices } from "../../services/firebase/index";
+import { firebaseServices } from "../../services/firebase/index";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "../../hooks/useQuery";
-// import CartItem from "../../components/cart/item";
-// import Total from "../../components/cart/total";
+import CartItem from "../../components/cart/item";
+import Total from "../../components/cart/total";
 
 const initialState = {
   name: { value: "", error: "", hasError: true, active: false, name: "name" },
@@ -50,9 +50,8 @@ function Checkout() {
     total,
     setCart,
     onAddToCart,
-    onDecreaseItem,
-    onRemoveItem,
-    getTotalItemQuantity,
+    onDecreaseFromCart,
+    onRemoveFromCart,
   } = useContext(CartContext);
   const [formState, inputHandler, inputFocus, inputBlur, clearInputs] =
     useForm(initialState);
@@ -169,7 +168,7 @@ function Checkout() {
                   id="surname"
                   name="surname"
                   required={true}
-                  label="Apellido"
+                  label="Last Name"
                   onChange={onChange}
                   onFocus={() => onFocus({ name: "surname" })}
                   onBlur={() => onBlur({ name: "surname" })}
@@ -185,7 +184,7 @@ function Checkout() {
                   id="document"
                   name="document"
                   required={true}
-                  label="Documento de identidad"
+                  label="DNI"
                   onChange={onChange}
                   onFocus={() => onFocus({ name: "document" })}
                   onBlur={() => onBlur({ name: "document" })}
@@ -217,7 +216,7 @@ function Checkout() {
                   id="phone"
                   name="phone"
                   required={true}
-                  label="Telefono"
+                  label="Phone Number"
                   onChange={onChange}
                   onFocus={() => onFocus({ name: "phone" })}
                   onBlur={() => onBlur({ name: "phone" })}
@@ -233,7 +232,7 @@ function Checkout() {
                   id="address"
                   name="address"
                   required={true}
-                  label="Direccion"
+                  label="Address"
                   onChange={onChange}
                   onFocus={() => onFocus({ name: "address" })}
                   onBlur={() => onBlur({ name: "address" })}
@@ -249,7 +248,7 @@ function Checkout() {
                   id="postalCode"
                   name="postalCode"
                   required={true}
-                  label="Codigo postal"
+                  label="Zipcode"
                   onChange={onChange}
                   onFocus={() => onFocus({ name: "postalCode" })}
                   onBlur={() => onBlur({ name: "postalCode" })}
@@ -277,11 +276,11 @@ function Checkout() {
                 key={product.id}
                 {...product}
                 onAddToCart={onAddToCart}
-                onDecreaseItem={onDecreaseItem}
-                onRemoveItem={onRemoveItem}
+                onDecreaseFromCart={onDecreaseFromCart}
+                onRemoveFromCart={onRemoveFromCart}
               />
             ))}
-            <Total total={total} totalItemQuantity={getTotalItemQuantity()} />
+            <Total total={total} />
           </div>
         ) : null}
       </div>

@@ -16,22 +16,6 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <ul className="menu">
-        <li>
-          <Link to={"#"} href="#">
-            About
-          </Link>
-        </li>
-        <li>
-          <a href="#">Products</a>
-        </li>
-        <li>
-          <Link to={"/categories"} href="/categories">
-            Categories
-          </Link>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
         <li onClick={goToCart} className="menu-cart-container">
           <img
             className="menu-cart-image"

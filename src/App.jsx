@@ -4,9 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import ProductDetail from "./pages/product-detail";
 import { CartProvider } from "./context/cart-context";
-import Cart from "./components/cart";
+import Cart from "././pages/cart";
 import Categories from "./pages/categories";
 import Checkout from "./pages/checkout";
+import SuccesOrder from "./pages/success-order";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             }
           />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success-order" element={<SuccesOrder />} />
         </Routes>
       </CartProvider>
     </div>
