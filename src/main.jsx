@@ -11,16 +11,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAEb-WA3U4BHNvJgARzxwXIBs8QEdpohbA",
-  authDomain: "shopreact-a78fc.firebaseapp.com",
-  projectId: "shopreact-a78fc",
-  storageBucket: "shopreact-a78fc.appspot.com",
-  messagingSenderId: "265718521525",
-  appId: "1:265718521525:web:7b9c67716f1830bb88e8fc",
+  apiKey: import.meta.env.VITE_APP_APIKEY,
+  authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_APP_PROJECTID,
+  storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APP_APPID,
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
