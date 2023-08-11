@@ -28,7 +28,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Pre-requisitos
+## Pre-requisites
 
 - [Visual Studio Code]('https://code.visualstudio.com/')
 - [NodeJS > 16]('https://nodejs.org') y npm. (Recomendacion usar [nvm](https://github.com/nvm-sh/nvm))
